@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="/assets/Favicon/pokeBall.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body class="bg-sky-900">
+  <div class="">
+    <div class="z-20 flex fixed bg-red-600 h-20 space-x-5 items-center w-full">
+  
+      <img class="h-full hidden sm:table-cell" src="./assets/logo.png" alt="logoPokemon">
+      
+      <select class="h-1/2 rounded-lg p-2" id="filterPokemonsBy" onchange="changeFilter()">
+        <option value="all">All</option>
+        <option value="name">Name</option>
+        <option value="id">Id</option>
+        <option value="type">Type</option>
+      </select>
+      
+      <select class="h-1/2 rounded-lg hidden" id="filterType">
+        <option value="">Choose a type</option>
+        <option value="steel">steel</option>
+        <option value="water">water</option>
+        <option value="bug">bug</option>
+        <option value="dragon">dragon</option>
+        <option value="electric">electric</option>
+        <option value="ghost">ghost</option>
+        <option value="fire">fire</option>
+        <option value="fairy">fairy</option>
+        <option value="ice">ice</option>
+        <option value="fighting">fighting</option>
+        <option value="normal">normal</option>
+        <option value="grass">grass</option>
+        <option value="psychic">psychic</option>
+        <option value="rock">rock</option>
+        <option value="dark">dark</option>
+        <option value="ground">ground</option>
+        <option value="poison">poison</option>
+        <option value="flying">flying</option>
+    </select>
+  
+    <input class="rounded-lg h-1/2 pl-3 hidden" type="text" id="filterValue" placeholder="name or number">
+  
+    <button class="flex bg-white h-1/2 rounded-lg items-center p-3" onclick="find()">Search</button>
+
+    </div>
+
+  </div>
+
+  <div id="container" class="pt-20">
+    <div id="containerPokemons" class="w-full mx-auto grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 p-6">
+    </div>
+  
+    <div class="modal flex hidden justify-center items-center fixed inset-0 z-30" id="popup">
+      <div onclick="closePopup()" class="h-full w-full bg-gray-500 bg-opacity-75 transition-opacity">
+      </div>
+      <div id="modalCard">
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <script src="Pokemons.js"></script>
+</body>
+</html>
